@@ -4,5 +4,4 @@ pandas
 pydeck
 streamlit
 seaborn
-matplotlib.pyplot
-LinearRegression
+scikit-learn
