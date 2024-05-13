@@ -12,54 +12,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import streamlit as st
-from streamlit.logger import get_logger
-
-LOGGER = get_logger(__name__)
-
-
-# def run():
-#     st.set_page_config(
-#         page_title="Hello",
-#         page_icon="👋",
-#     )
-#
-#     st.write("# Welcome to Streamlit! 👋")
-#
-#     st.sidebar.success("Select a demo above.")
-#
-#     st.markdown(
-#         """
-#         Streamlit is an open-source app framework built specifically for
-#         Machine Learning and Data Science projects.
-#         **👈 Select a demo from the sidebar** to see some examples
-#         of what Streamlit can do!
-#         ### Want to learn more?
-#         - Check out [streamlit.io](https://streamlit.io)
-#         - Jump into our [documentation](https://docs.streamlit.io)
-#         - Ask a question in our [community
-#           forums](https://discuss.streamlit.io)
-#         ### See more complex demos
-#         - Use a neural net to [analyze the Udacity Self-driving Car Image
-#           Dataset](https://github.com/streamlit/demo-self-driving)
-#         - Explore a [New York City rideshare dataset](https://github.com/streamlit/demo-uber-nyc-pickups)
-#     """
-#     )
-#
-#
-# if __name__ == "__main__":
-#     run()
-
-
 import pandas as pd
+
+import streamlit as st
 import os
 import seaborn as sns
-from datetime import *
-from functools import reduce
 from sklearn.linear_model import LinearRegression
-from scipy.stats import f_oneway
 import matplotlib.pyplot as plt
-import streamlit as st
+
+st.set_page_config(page_title="stress_score와 다른 요소들의 관계")
+st.markdown("# stress_score와 다른 요소들의 관계")
 # ###모든 글자는 st.markdown(
 #     "<h2 style='text-align: center;'>스트레스 관리와 수면의 질, 활동과의 상관관계</h2>"
 #     "<h3 style='text-align: center;'>Top10 heatmap</h3>",
@@ -114,10 +76,6 @@ fig, ax = plt.subplots(figsize=(10, 8))
 sns.heatmap(top_correlation_matrix, annot=True, cmap='coolwarm', fmt=".2f", ax=ax)
 plt.title('Top 10 Correlation Heatmap (for numeric columns)')
 st.pyplot(fig)
-import streamlit as st
-import matplotlib.pyplot as plt
-import seaborn as sns
-from sklearn.linear_model import LinearRegression
 st.markdown(
     "<h2 style='text-align: center;'>스트레스 관리능력과 수면의 관계</h2>"
     "<h3 style='text-align: center;'>stress_score와 sleep_points_percentage의 관계</h3>",
@@ -148,4 +106,3 @@ ax.set_title('Stress Score vs. sleep_points_percentage (Stress Score > 60)')
 
 # 스트림릿에 그래프 출력
 st.pyplot(fig)
-
